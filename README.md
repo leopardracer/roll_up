@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/barrywhitehat/roll_up](https://badges.gitter.im/barrywhitehat/roll_up.png)](https://gitter.im/barrywhitehat/roll_up?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
-Roll_up aggregates transactions so that they only require a single onchain transactions required to validate multiple other transactions. The snark checks the signature and applies the transaction to the the leaf that the signer owns.
+Roll_up aggregates transactions so that they only require a single onchain transactions required to validate multiple other transactions. The snark checks the signature and applies the transaction to the leaf that the signer owns.
 
 Multiple users create signatures. Provers aggregates these signatures into a snark and use it to update a smart contract on the ethereum blockchain. A malicious prover who does not also have that leafs private key cannot change a leaf. Only the person who controls the private key can. 
 
@@ -57,7 +57,7 @@ this is simply the read and write layer, we do not check what is being written h
 The snark can then be included in a transaction to update the merkle root tracked by a smart contract. 
 
 
-## Data availabilty guarrentees
+## Data availabilty guarantees
 
 It is important that each prover is able to make merkle proofs for all leaves.
 If they cannot these leaves are essentially locked until that information becomes available.
@@ -91,7 +91,7 @@ So we calculate how much we can spend on data availability
 
 ## Proving time
 
-On a laptop with 7 GB of ram and 20 GB of swap space it struggles to aggragate 20 transactions per second. This is a
+On a laptop with 7 GB of ram and 20 GB of swap space it struggles to aggregate 20 transactions per second. This is a
 combination of my hardware limits and cpp code that needs to be improved. 
 
 [Wu et al](https://eprint.iacr.org/2018/691) showed that is is possible to distribute
@@ -100,7 +100,7 @@ these computations that scales to billions of constaints.
 In order to reach the tps described above three approaches exist. 
 
 1. Improve the cpp code similar to https://github.com/HarryR/ethsnarks/issues/3 and run it on enterprise hardware.
-2. Implmenting the full distributed system described by Wu et al.
+2. Implementing the full distributed system described by Wu et al.
 3. Specialized hardware to create these proofs. 
 
 
